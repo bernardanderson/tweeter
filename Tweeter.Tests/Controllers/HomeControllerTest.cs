@@ -18,6 +18,7 @@ namespace Tweeter.Tests.Controllers
     {
         Mock<TweeterContext> mock_context { get; set; }
         Mock<DbSet<Tweet>> mock_tweet_table { get; set; }
+        Mock<DbSet<Twit>> mock_ApplicationUser_table { get; set; }
         Mock<DbSet<Twit>> mock_twit_table { get; set; }
         AccountController repo { get; set; }
 

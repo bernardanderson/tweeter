@@ -8,39 +8,43 @@
     @Scripts.Render("~/bundles/modernizr")
 
 </head>
-<body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
+<body ng-app="tweeter">
+    <div ng-controller="mainPage" ng-cloak>
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <div class="input-group col-xs-3">
+                            <input type="text" class="form-control" placeholder="Search" aria-describedby="basic-addon1">
+                            <span class="input-group-addon btn" id="basic-addon1"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
+                        </div>
+                        <div class="col-sm-offset-10">
+                            @Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })
+                        </div>
+                    </li>
+                </ul>
             </div>
-            <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <div class="input-group col-xs-3">
-                        <input type="text" class="form-control" placeholder="Search" aria-describedby="basic-addon1">
-                        <span class="input-group-addon btn" id="basic-addon1"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
-                    </div>
-                    <div class="col-sm-offset-10">
-                        @Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })
-                    </div>
-                </li>
-            </ul>
         </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            </footer>
+        </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
+        <script type="text/javascript" src="~/app/app.js"></script>
+        <script type="text/javascript" src="~/app/app-controller.js"></script>
+        @RenderSection("scripts", required: false)
 </body>
 </html>
